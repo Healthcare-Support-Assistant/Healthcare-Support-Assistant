@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Healthcare Support Assistant</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Playfair Display', serif;
+      background: 
+        linear-gradient(rgba(240, 248, 255, 0.7), rgba(220, 230, 240, 0.7)),
+        url('./IMAGES/robot.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      animation: breathe 4s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%   { transform: scale(1); box-shadow: 0 0 15px rgba(100,150,200,0.2); }
+      50%  { transform: scale(1.02); box-shadow: 0 0 25px rgba(100,150,200,0.3); }
+      100% { transform: scale(1); box-shadow: 0 0 15px rgba(100,150,200,0.2); }
+    }
+
+    h1 {
+      color: #2F4F6F;
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: 0.3s ease;
+    }
+    h1:hover { color: #4682B4; transform: scale(1.05); cursor: pointer; text-shadow: 0 4px 12px rgba(70,130,180,0.5); }
+    h1:active { transform: scale(0.97); text-shadow: 0 2px 6px rgba(0,0,0,0.4); }
+
+    .section h2 {
+      color: #2F4F6F;
+      margin-bottom: 10px;
+      transition: 0.3s ease;
+    }
+    .section h2:hover { color: #4682B4; transform: scale(1.03); cursor: pointer; text-shadow: 0 3px 8px rgba(70,130,180,0.4); }
+    .section h2:active { transform: scale(0.96); text-shadow: 0 2px 6px rgba(0,0,0,0.3); }
+
+    .nav-buttons {
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .nav-buttons button {
+      background: #2F4F6F; color: #fff; border: none;
+      padding: 12px 24px; border-radius: 999px;
+      cursor: pointer; font-size: 1rem; font-weight: bold;
+      transition: 0.3s ease;
+    }
+    .nav-buttons button:hover { background: #4682B4; transform: translateY(-2px); }
+
+    .section { display: none; margin-top: 20px; background: #f9f9f9; padding: 25px; border-radius: 12px; border: 1px solid #ddd; }
+    .section.active { display: block; }
+
+    .staff-list { list-style: none; margin-top: 10px; }
+    .staff-list li {
+      padding: 10px; margin: 5px 0;
+      background: #eef3f8; border-radius: 999px;
+      transition: 0.3s; display: flex; align-items: center; gap: 10px; color: #333;
+    }
+    .staff-list li:hover { background: #4682B4; color: #fff; }
+
+    .staff-photo { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #2F4F6F; }
+
+    .about-text { line-height: 1.6; color: #444; }
+
+    .disclaimer { margin-top: 30px; font-size: 0.9rem; color: #666; border-top: 1px solid #ddd; padding-top: 10px; }
+
+    .chat-icon {
+      position: fixed; bottom: 25px; right: 25px;
+      background: #2F4F6F; color: #fff;
+      width: 60px; height: 60px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; font-size: 1.5rem; text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: 0.3s ease; z-index: 999;
+    }
+    .chat-icon:hover { background: #4682B4; transform: scale(1.1); }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Healthcare Support Assistant</h1>
+
+    <div class="nav-buttons">
+      <button onclick="showSection('our-team')">Our Team</button>
+      <button onclick="showSection('overview')">Overview</button>
+    </div>
+
+    <div id="our-team" class="section">
+      <h2>Our Team</h2>
+      <ul class="staff-list">
+        <li><img src="IMAGES/Dumisani.PNG" alt="Dumisani" class="staff-photo"> Dumisani</li>
+        <li><img src="IMAGES/Mbuyelo.JFIF" alt="Mbuyelo" class="staff-photo"> Mbuyelo</li>
+        <li><img src="IMAGES/Nomcebo.JFIF" alt="Nomcebo" class="staff-photo"> Nomcebo</li>
+        <li><img src="IMAGES/Kelebogile.PNG" alt="Kelebogile" class="staff-photo"> Kelebogile</li>
+        <li><img src="IMAGES/Vhutali.JFIF" alt="Vhutali" class="staff-photo"> Vhutali</li>
+      </ul>
+    </div>
+
+    <div id="overview" class="section">
+      <h2>Overview</h2>
+      <p class="about-text">
+        Healthcare Support Assistant is designed to provide reliable guidance and helpful information wherever you are. Our goal is to make you feel supported and informed, while encouraging you to seek professional medical care when needed.
+      </p>
+    </div>
+
+    <div class="disclaimer">
+      NB: I can share helpful insights, but only a qualified doctor can provide medical care.
+    </div>
+  </div>
+
+  <a href="#" id="chatLink" target="_blank" class="chat-icon">💬</a>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        if (section.id === sectionId) {
+          section.classList.toggle('active');
+        } else {
+          section.classList.remove('active');
+        }
+      });
+    }
+
+    document.getElementById('chatLink').href = "https://creator.voiceflow.com/share/69e8861d4d3c80512d4758d6/development";
+  </script>
+</body>
+</html>
